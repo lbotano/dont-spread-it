@@ -17,7 +17,7 @@ export default class Logo extends GameObject {
         this.sprite.rotation = -this.MAX_ROTATION;
 
         this.container.addChild(this.sprite);
-        this.game.app.stage.addChild(this.container);
+        this.game.container.addChild(this.container);
 
         // Add animations
         ease.add(this.sprite,

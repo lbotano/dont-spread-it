@@ -13,7 +13,7 @@ export default class GameStartText extends GameObject {
                 align: 'center'
             });
         
-        this.game.app.stage.addChild(this.text);
+        this.game.container.addChild(this.text);
     }
     public update(deltaTime: number): void {
         throw new Error("Method not implemented.");

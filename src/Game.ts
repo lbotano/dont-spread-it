@@ -7,7 +7,7 @@ export default class Game {
     public scale: number;
 
     public app: PIXI.Application;
-    private container: PIXI.Container;
+    public container: PIXI.Container;
     private ticker: PIXI.Ticker;
     public spritesheet: PIXI.Spritesheet;
 
@@ -21,16 +21,19 @@ export default class Game {
         this.resolution = resolution;
         this.scale = scale;
 
+        // Declare application
         this.app = new PIXI.Application({
-            width: this.resolution.x * this.scale,
-            height: this.resolution.y * this.scale,
+            width: this.resolution.x,// * this.scale,
+            height: this.resolution.y,// * this.scale,
             backgroundColor: 0x000000,
             antialias: true,
             resolution: 1
         });
         this.container = new PIXI.Container();
-        this.app.stage.scale = new PIXI.Point(this.scale, this.scale);
-        PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
+
+        // Scale game
+        //this.container.scale.x = this.container.scale.y = this.scale;
+        //PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
         
         this.app.stage.addChild(this.container);
         document.body.appendChild(this.app.view);
