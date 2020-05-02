@@ -6,14 +6,11 @@ export default class GameStartText extends GameText {
     private timer = 0;
 
     public start(): void {
-        this.textStart('Click or press any key\nto start', 10, 'white');
-        this.canvasText.pivot.x = this.canvasText.width / 2;
-        this.canvasText.pivot.y = this.canvasText.height / 2;
+        this.textStart('Click or press any key\n to start', 5, 'white', 'left', 'center');
 
         this.canvasText.x = this.game.app.renderer.width / 2;
         this.canvasText.y = this.game.app.renderer.height / 4 * 3;
     }
-
 
     public update(deltaTime: number): void {
         this.timer += deltaTime;

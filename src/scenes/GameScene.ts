@@ -1,8 +1,10 @@
 import * as PIXI from 'pixi.js';
 import Scene from '../Scene';
+import Logo from '../gameObjects/Logo';
 
 export default class GameScene extends Scene {
     start(): void {
+
     }
 
     stop(): void {
@@ -10,5 +12,6 @@ export default class GameScene extends Scene {
     }
 
     update(deltaTime: number): void {
+        
     }
 }

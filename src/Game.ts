@@ -1,6 +1,10 @@
 import * as PIXI from 'pixi.js';
+import Keyboard from './Keyboard';
 import Scene from './Scene';
+
 import TitleScreen from './scenes/TitleScreen';
+import GameScene from './scenes/GameScene';
+import StoryScene from './scenes/StoryScene';
 
 export default class Game {
     public resolution: PIXI.IPoint;
@@ -12,6 +16,9 @@ export default class Game {
     public spritesheet: PIXI.Spritesheet;
 
     private scene: Scene;
+    public scenes: { [name: string]: Scene } = {};
+
+    public keyboard: Keyboard;
     
     private updateScene = (deltaTime: number): void => {
         this.scene.update(deltaTime);
@@ -31,17 +38,25 @@ export default class Game {
         });
         this.container = new PIXI.Container();
 
-        // Scale game
-        //this.container.scale.x = this.container.scale.y = this.scale;
-        //PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
         
+        // Add container to the DOM
         this.app.stage.addChild(this.container);
         document.body.appendChild(this.app.view);
-
+        
+        
+        // Create keyboard
+        this.keyboard = new Keyboard();
+        this.keyboard.start();
+        
+        // Create scenes
+        this.scenes['titleScreen'] = new TitleScreen(this);
+        this.scenes['storyScene'] = new StoryScene(this);
+        this.scenes['gameScene'] = new GameScene(this);
+        
         // Create spritesheet
         PIXI.Loader.shared
-            .add('assets/sprites.json')
-            .load((): void => {
+        .add('assets/sprites.json')
+        .load((): void => {
                 // Create ticker and prevent it from starting
                 this.ticker = PIXI.Ticker.shared;
                 this.ticker.autoStart = false;
@@ -55,7 +70,7 @@ export default class Game {
     }
 
     private start(): void {
-        this.changeScene(new TitleScreen(this));
+        this.changeScene(this.scenes['titleScreen']);
         //this.changeScene(new GameScene(this));
     }
 
