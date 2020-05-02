@@ -21,5 +21,6 @@ export default class TitleScreen extends Scene {
 
     update(deltaTime: number): void {
         this.logo.update(deltaTime);
+        this.text.update(deltaTime);
     }
 }

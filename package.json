@@ -20,11 +20,13 @@
     "eslint-import-resolver-typescript": "^2.0.0",
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^6.0.0",
+    "font-loader": "^0.1.2",
     "html-webpack-plugin": "^4.3.0",
     "pixi-ease": "^2.4.2",
     "pixi.js": "^5.2.3",
     "source-map-loader": "^0.2.4",
     "ttf-loader": "^1.0.2",
+    "webfontloader": "^1.6.28",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"

@@ -42,9 +42,11 @@ module.exports = {
                 test: /\.ttf$/,
                 use: [
                     {
-                        loader: 'only-ttf-loader',
-                        options: {},
-                    }
+                        loader: 'ttf-loader',
+                        options: {
+                            name: './font/[hash].[ext]'
+                        },
+                    },
                 ]
             },
             {
