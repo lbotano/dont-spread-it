@@ -8,5 +8,6 @@ export default abstract class GameObject {
     }
 
     public abstract start(): void;
+    public abstract stop(): void;
     public abstract update(deltaTime: number): void;
 }

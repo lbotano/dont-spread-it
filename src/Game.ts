@@ -40,6 +40,7 @@ export default class Game {
 
         
         // Add container to the DOM
+        this.app.stage.sortableChildren = true;
         this.app.stage.addChild(this.container);
         document.body.appendChild(this.app.view);
         
@@ -71,7 +72,6 @@ export default class Game {
 
     private start(): void {
         this.changeScene(this.scenes['titleScreen']);
-        //this.changeScene(new GameScene(this));
     }
 
     public changeScene(scene: Scene): void {
